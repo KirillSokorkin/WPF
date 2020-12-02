@@ -17,10 +17,12 @@ namespace Lab2
         static ZapisModel zapismodel = new ZapisModel();
         static bool rez = true;
         ArrayList myList;
+        static string LocalBase = @"C:\Users\Кирилл\Desktop\thrlist.xlsx";
+        static string SaveFile = @"C:\Users\Кирилл\Desktop\1.xlsx";
         public MainWindow()
         {
             InitializeComponent();
-            if (!System.IO.File.Exists(@"C:\Users\Кирилл\Desktop\thrlist.xlsx"))
+            if (!System.IO.File.Exists(LocalBase))
             {
                 string text = "Локальная БД не найдена и была загруженна из Космической Сети Интернет";
                 label.Content = text;
@@ -63,7 +65,7 @@ namespace Lab2
         }
         private void Rez_Click(object sender, RoutedEventArgs e)
         {
-            string text = "Какой-то режимный текст";
+            string text = "Режим изменён";
             rez = !rez;
 
             label.Content = text;
@@ -195,7 +197,7 @@ namespace Lab2
                 }
             }
 
-            workBook.Close(true, @"C:\Users\Кирилл\Desktop\1.xlsx");
+            workBook.Close(true, SaveFile);
         }
 
         private void Backwards_Click(object sender, RoutedEventArgs e)

@@ -7,6 +7,8 @@ namespace Lab2
 {
     class ZapisModel
     {
+        static string URLFile = "https://bdu.fstec.ru/files/documents/thrlist.xlsx";
+        static string LocalBase = @"C:\Users\Кирилл\Desktop\thrlist.xlsx";
         //Класс для создания Полных Записей
         public class Zapis
         {
@@ -39,14 +41,14 @@ namespace Lab2
         public void Download()
         {
             WebClient client = new WebClient();
-            client.DownloadFile("https://bdu.fstec.ru/files/documents/thrlist.xlsx", @"C:\Users\Кирилл\Desktop\thrlist.xlsx");
+            client.DownloadFile(URLFile, LocalBase);
         }
         //Возвращает Коллекцию записей из БД
         public ArrayList GetData(bool rez)
         {
             ArrayList listZapisey = new ArrayList();
             int count = 1;
-            string FileName = @"C:\Users\Кирилл\Desktop\thrlist.xlsx";
+            string FileName = LocalBase;
             object rOnly = true;
             object SaveChanges = false;
             object MissingObj = System.Reflection.Missing.Value;
